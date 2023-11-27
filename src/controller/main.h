@@ -9,6 +9,7 @@ class Main
 
 	public:
 		Main();
+		~Main(){ clear(); }
 	
 	private:
 		void startGame();
@@ -16,4 +17,5 @@ class Main
 		void end();
 		
 		void clear(); 
+
 };

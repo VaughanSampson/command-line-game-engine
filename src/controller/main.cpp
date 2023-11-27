@@ -21,4 +21,6 @@ void Main::end() {
 
 void Main::clear(){
     delete this -> map;
+    std::cout << "cleared";
 }
+
