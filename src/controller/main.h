@@ -18,4 +18,6 @@ class Main
 		
 		void clear(); 
 
+		void checkKeyState();
+
 };
