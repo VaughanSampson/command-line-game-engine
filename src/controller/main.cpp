@@ -14,15 +14,28 @@ Main::Main() {
 void Main::startGame() {
     this -> map = new GameMap(30, 30);
     this -> view = new TerminalView(map);
+    view -> SetupRender();
     gameLoop();
 }
 
 void Main::gameLoop() {
     std::cout << map -> getHeight();
+
+    int updateTimer = 1000 / Main::updatesPerSecond;
+    int updateSinceLastFrame = 0;
+
     bool running = true; 
     while(running){
-        view -> Render();
-        Sleep(1000 / Main::framesPerSecond); 
+        Sleep(updateTimer); 
+
+        // update
+
+        // render
+        updateSinceLastFrame ++;
+        if(updateSinceLastFrame >= Main::updatesPerFrame) {
+            updateSinceLastFrame = 0;
+            view -> Render(); 
+        }
     }
 }
 
