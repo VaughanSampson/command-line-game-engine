@@ -1,16 +1,16 @@
-#include "entity.h"
+#include "enemy.h"
 
-Entity::Entity(int x, int y): x(x), y(y) {};
+Enemy::Enemy(int x, int y): x(x), y(y) {};
 
-int Entity::GetX() const{ return this -> x; };
-int Entity::GetY() const{ return this -> y; };
-char Entity::GetSymbol() const{ return this -> symbol; };
+int Enemy::GetX() const{ return this -> x; };
+int Enemy::GetY() const{ return this -> y; };
+char Enemy::GetSymbol() const{ return this -> symbol; };
 
-bool Entity::DoesCollide(int x, int y){
+bool Enemy::DoesCollide(int x, int y){
     return this -> x == x && this -> y == y;
 }
 
-void Entity::IncChange(){
+void Enemy::IncChange(){
     this -> changeTimer;
     if(changeTimer > changeTime)
     {
@@ -18,5 +18,8 @@ void Entity::IncChange(){
         Update();
     }
 }
- 
+  
+void Enemy::Update(){
+    this -> y ++;
+}
  

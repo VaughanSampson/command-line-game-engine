@@ -1,6 +1,6 @@
 #pragma once
 
-class Entity {
+class Enemy {
 
     protected:
         int x, y;
@@ -8,7 +8,7 @@ class Entity {
         int changeTimer, changeTime;
     
     public:
-        Entity(int x, int y);
+        Enemy(int x, int y);
 
         int GetX() const;
         int GetY() const;
