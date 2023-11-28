@@ -21,8 +21,8 @@ void Main::gameLoop() {
     std::cout << map -> getHeight();
     bool running = true; 
     while(running){
-        Sleep(1000 / Main::framesPerSecond); 
         view -> Render();
+        Sleep(1000 / Main::framesPerSecond); 
     }
 }
 

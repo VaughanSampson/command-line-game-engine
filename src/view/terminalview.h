@@ -10,5 +10,6 @@ class TerminalView{
     public:
         TerminalView(GameMap* map);
         void Render();
+        void SetPostion(int column, int line);
 
 };

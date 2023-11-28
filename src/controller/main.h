@@ -8,7 +8,7 @@ class Main
 	private:
 		GameMap* map;
 		TerminalView* view;
-		const int framesPerSecond = 60;  
+		const int framesPerSecond = 10;  
 
 	public:
 		Main();
