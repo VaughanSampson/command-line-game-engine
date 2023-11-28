@@ -17,6 +17,6 @@ class Entity {
         bool DoesCollide(int x, int y);
         
         void IncChange();
-        virtual void Update() = 0;
+        void Update();
 
 };
