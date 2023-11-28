@@ -1,12 +1,13 @@
-
+#pragma once
 
 class GameMap {
 
     private:
         int width, height;
+        
     
     public:
-        GameMap(int setWidth, int setHeight); 
+        GameMap(int width, int height); 
 
         int getWidth() const {
             return width;

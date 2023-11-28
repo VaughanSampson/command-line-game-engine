@@ -13,6 +13,7 @@ Main::Main() {
 
 void Main::startGame() {
     this -> map = new GameMap(30, 30);
+    this -> view = new TerminalView(map);
     gameLoop();
 }
 
@@ -21,6 +22,7 @@ void Main::gameLoop() {
     bool running = true; 
     while(running){
         Sleep(1000 / Main::framesPerSecond); 
+        view -> Render();
     }
 }
 
@@ -31,6 +33,7 @@ void Main::end() {
 
 void Main::clear(){
     delete this -> map;
+    delete this -> view;
     std::cout << "cleared";
 }
 

@@ -10,6 +10,7 @@
                 "${workspaceFolder}/src/*.cpp",
                 "${workspaceFolder}/src/controller/*.cpp",
                 "${workspaceFolder}/src/models/*.cpp", 
+                "${workspaceFolder}/src/view/*.cpp", 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

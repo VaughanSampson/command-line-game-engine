@@ -1,14 +1,14 @@
 #include <iostream>  
 #include <string> 
-#include "../models/gamemap.h"
-#include <chrono>
-using namespace std::chrono;
+#include "../view/terminalview.h"
+#include "../models/gamemap.h" 
 
 class Main
 { 
 	private:
 		GameMap* map;
-		const int framesPerSecond = 60; 
+		TerminalView* view;
+		const int framesPerSecond = 60;  
 
 	public:
 		Main();
