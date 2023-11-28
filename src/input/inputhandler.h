@@ -1,5 +1,5 @@
  
-class InputHandler{
+class InputHandler {
 
     public:
         int static getHorizontalAxis();

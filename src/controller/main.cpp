@@ -44,7 +44,7 @@ void Main::end() {
      
 }
 
-void Main::clear(){
+void Main::clear() {
     delete this -> map;
     delete this -> view;
     std::cout << "cleared";

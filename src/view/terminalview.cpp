@@ -6,7 +6,7 @@ TerminalView::TerminalView(GameMap* map): map(map) {
     std::cout << "    " << "Laser Shooter" << "\n";
 }
 
-void TerminalView::SetupRender(){
+void TerminalView::SetupRender() {
     system("cls");
     SetPostion(0,0);
     std::cout << "    " << "Laser Shooter" << "\n"; 
@@ -25,8 +25,7 @@ void TerminalView::SetPostion(int column, int line)
  
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
  
-    if (!SetConsoleCursorPosition(hConsole, coord))
-    {
+    if (!SetConsoleCursorPosition(hConsole, coord)) {
         std::cout << GetLastError() << std::endl;
     }
 }
