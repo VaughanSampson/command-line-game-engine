@@ -14,8 +14,23 @@ void TerminalView::SetupRender() {
 
 void TerminalView::Render() {
     SetPostion(0,1); 
-    std::cout << "    " << this -> map -> getWidth() << "\n";
-    std::cout << "    " << this -> player -> getAngle() << std::endl;
+    Draw(map -> getWidth());
+    Draw(player -> getAngle()); 
+}
+
+void TerminalView::Draw(std::string text, bool newLine) {
+    std::cout << "    " << text;
+    if(newLine) {
+        std::cout << "\n";
+    }
+}
+ 
+void TerminalView::Draw(int num, bool newLine) {
+     Draw(std::to_string(num), newLine);
+}
+
+void TerminalView::Draw(float num, bool newLine) {
+     Draw(std::to_string(num), newLine);
 }
 
 void TerminalView::SetPostion(int column, int line)
