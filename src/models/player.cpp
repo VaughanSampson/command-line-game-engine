@@ -1,16 +1,7 @@
 #include "player.h"
+ 
 
-Player::Player() {
-    input = new InputHandler();
-}
-
-Player::~Player() {
-    delete input;
-}
-
-void Player::Update() {
-    // Get input
-    int horizontalAxisInput = input -> getHorizontalAxis();
+void Player::Update(int horizontalAxisInput) { 
 
     // Create torque
     torque += horizontalAxisInput;

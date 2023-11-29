@@ -1,5 +1,5 @@
-#include "main.h"    
-
+#include "main.h"   
+         
 #ifdef _WIN32
 #include <windows.h>
 #else
@@ -13,6 +13,7 @@ Main::Main() {
 
 void Main::startGame() {
     this -> map = new GameMap(20, 20);
+    this -> input = new InputHandler();
     this -> player = new Player();
     this -> view = new TerminalView(map, player);
     view -> SetupRender();
@@ -29,7 +30,7 @@ void Main::gameLoop() {
         Sleep(updateTimer); 
 
         // update
-        player -> Update();
+        player -> Update(input -> getHorizontalAxis());
 
         // render
         updateSinceLastFrame ++;
@@ -47,6 +48,7 @@ void Main::end() {
 
 void Main::clear() {
     delete map;
+    delete input;
     delete player;
     delete view;
 }
