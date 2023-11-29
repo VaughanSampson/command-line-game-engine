@@ -4,7 +4,7 @@
 #include <cmath>
 #define _USE_MATH_DEFINES
 
-TerminalView::TerminalView(GameMap* map, Player* player): map(map), player(player) {
+TerminalView::TerminalView(GameMap* map): map(map) {
     std::cout << "    " << "Laser Shooter" << "\n";
     width = map -> getWidth() * 2;
     height = map -> getHeight();
@@ -31,14 +31,14 @@ void TerminalView::SetupRender() {
 void TerminalView::Render() {
     SetPostion(0,1); 
     DrawMessage(map -> getWidth());
-    DrawMessage(player -> getAngle()); 
-    DrawMap(map, player); 
+    DrawMessage(map -> getPlayer() -> getAngle()); 
+    DrawMap(); 
 }
 
-void TerminalView::DrawMap(GameMap* map, Player* player){
+void TerminalView::DrawMap(){
 
     // Player crosshair
-    float r = ((player -> getAngle()) * 0.01745328888);
+    float r = ((map -> getPlayer() -> getAngle()) * 0.01745328888);
     int x = (int)((float)cos(r)*(width-5));
     int y = (int)((float)sin(r)*(height-5));
     if(x != crosshairX || y != crosshairY) {

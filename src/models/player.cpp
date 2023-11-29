@@ -12,6 +12,7 @@ void Player::Update(int horizontalAxisInput) {
     // Create drag
     torque -= torque/20;
 
+    // Enforce boundaries
     if(angle < -180){
         angle = -180;
         torque = 0;

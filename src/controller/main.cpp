@@ -12,10 +12,9 @@ Main::Main() {
 }
 
 void Main::startGame() {
-    this -> map = new GameMap(20, 20);
-    this -> input = new InputHandler();
-    this -> player = new Player();
-    this -> view = new TerminalView(map, player);
+    map = new GameMap(20, 20);
+    input = new InputHandler();
+    view = new TerminalView(map);
     view -> SetupRender();
     gameLoop();
 }
@@ -30,7 +29,7 @@ void Main::gameLoop() {
         Sleep(updateTimer); 
 
         // update
-        player -> Update(input -> getHorizontalAxis());
+        map -> getPlayer() -> Update(input -> getHorizontalAxis());
 
         // render
         updateSinceLastFrame ++;
@@ -48,8 +47,7 @@ void Main::end() {
 
 void Main::clear() {
     delete map;
-    delete input;
-    delete player;
+    delete input; 
     delete view;
 }
 

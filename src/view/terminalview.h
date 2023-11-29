@@ -7,14 +7,13 @@
 class TerminalView{
 
     private:
-        GameMap* map;
-        Player* player;
+        GameMap* map; 
         int const frameOffsetX = 3, frameOffsetY = 4; 
         int width, height;
         int crosshairX = 0, crosshairY = 0;
 
     public:
-        TerminalView(GameMap* map, Player* player);
+        TerminalView(GameMap* map);
         void Render(); 
         void SetupRender();
 
@@ -25,7 +24,7 @@ class TerminalView{
         void DrawMessage(int num, bool newLine = true);
         void DrawMessage(float num, bool newLine = true);
         
-        void DrawMap(GameMap* map, Player* player);
+        void DrawMap();
 
         void SetPostion(int column, int line);
 

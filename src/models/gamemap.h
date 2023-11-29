@@ -1,19 +1,20 @@
+#include "../models/player.h" 
 #pragma once 
 
 class GameMap {
 
     private:
         int width, height; 
+		Player* player;
     
     public:
         GameMap(int width, int height); 
+        ~GameMap();
 
-        int getWidth() const {
-            return width;
-        }
+        void update();
 
-        int getHeight() const {
-            return height;
-        }
+        int getWidth() const; 
+        int getHeight() const; 
+        Player* getPlayer() const;
  
 };
