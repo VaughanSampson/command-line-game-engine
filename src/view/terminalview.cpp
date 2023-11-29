@@ -1,6 +1,8 @@
 #include "terminalview.h"
 #include <stdlib.h> 
-#include <Windows.h>
+#include <Windows.h> 
+#include <cmath>
+#define _USE_MATH_DEFINES
 
 TerminalView::TerminalView(GameMap* map, Player* player): map(map), player(player) {
     std::cout << "    " << "Laser Shooter" << "\n";
@@ -14,23 +16,39 @@ void TerminalView::SetupRender() {
 
 void TerminalView::Render() {
     SetPostion(0,1); 
-    Draw(map -> getWidth());
-    Draw(player -> getAngle()); 
+    DrawMessage(map -> getWidth());
+    DrawMessage(player -> getAngle()); 
+    DrawMap(map, player); 
 }
 
-void TerminalView::Draw(std::string text, bool newLine) {
+void TerminalView::DrawMap(GameMap* map, Player* player){
+    int offset = 2;
+
+    // Player crosshair
+    float r = ((player -> getAngle()) * 0.01745328888);
+    int x = (int)((float)cos(r)*(float)map->getWidth());
+    int y = (int)((float)sin(r)*(float)map->getHeight());
+    SetPostion(2*map->getWidth() + x*2, 2*map->getHeight() + y); 
+    DrawCharacter('X');
+}
+
+void TerminalView::DrawCharacter(char c) {
+    std::cout << c;
+}
+
+void TerminalView::DrawMessage(std::string text, bool newLine) {
     std::cout << "    " << text;
     if(newLine) {
         std::cout << "\n";
     }
 }
  
-void TerminalView::Draw(int num, bool newLine) {
-     Draw(std::to_string(num), newLine);
+void TerminalView::DrawMessage(int num, bool newLine) {
+     DrawMessage(std::to_string(num), newLine);
 }
 
-void TerminalView::Draw(float num, bool newLine) {
-     Draw(std::to_string(num), newLine);
+void TerminalView::DrawMessage(float num, bool newLine) {
+     DrawMessage(std::to_string(num), newLine);
 }
 
 void TerminalView::SetPostion(int column, int line)

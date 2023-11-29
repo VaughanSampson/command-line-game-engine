@@ -16,10 +16,10 @@ void Player::Update() {
     torque += horizontalAxisInput;
 
     // Add angle
-    angle+=torque;
+    angle += torque/2;
  
     // Create drag
-    torque-=torque/10;
+    torque -= torque/20;
 }
 
 float Player::getAngle() const { return angle; }

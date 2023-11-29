@@ -12,7 +12,7 @@ Main::Main() {
 }
 
 void Main::startGame() {
-    this -> map = new GameMap(30, 30);
+    this -> map = new GameMap(10, 10);
     this -> player = new Player();
     this -> view = new TerminalView(map, player);
     view -> SetupRender();
