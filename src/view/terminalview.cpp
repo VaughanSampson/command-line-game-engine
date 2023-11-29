@@ -6,12 +6,18 @@
 
 TerminalView::TerminalView(GameMap* map, Player* player): map(map), player(player) {
     std::cout << "    " << "Laser Shooter" << "\n";
+    width = map -> getWidth() * 2;
+    height = map -> getHeight();
 }
 
 void TerminalView::SetupRender() {
     system("cls");
     SetPostion(0,0);
-    std::cout << "    " << "Laser Shooter" << "\n"; 
+    DrawMessage("Laser Shooter");
+    SetPostion(0,3);
+    for(int i = 0; i < map->getWidth() * 4; i++) {
+        DrawCharacter('#');
+    }
 }
 
 void TerminalView::Render() {
@@ -26,12 +32,18 @@ void TerminalView::DrawMap(GameMap* map, Player* player){
 
     // Player crosshair
     float r = ((player -> getAngle()) * 0.01745328888);
-    int x = (int)((float)cos(r)*(float)map->getWidth());
-    int y = (int)((float)sin(r)*(float)map->getHeight());
-    SetPostion(2*map->getWidth() + x*2, 2*map->getHeight() + y); 
-    DrawCharacter('X');
+    int x = (int)((float)cos(r)*(width-5));
+    int y = (int)((float)sin(r)*(height-5));
+    if(x != crosshairX || y != crosshairY) {
+        SetPostion(width + crosshairX, 3 + height + crosshairY); 
+        DrawCharacter(' ');
+        SetPostion(width + x, 3 + height + y); 
+        DrawCharacter('X');
+        crosshairX = x;
+        crosshairY = y;
+    }
 }
-
+ 
 void TerminalView::DrawCharacter(char c) {
     std::cout << c;
 }

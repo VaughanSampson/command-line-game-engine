@@ -9,10 +9,12 @@ class TerminalView{
     private:
         GameMap* map;
         Player* player;
+        int width, height;
+        int crosshairX = 0, crosshairY = 0;
 
     public:
         TerminalView(GameMap* map, Player* player);
-        void Render();
+        void Render(); 
         void SetupRender();
 
     private:
