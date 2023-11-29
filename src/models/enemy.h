@@ -5,7 +5,8 @@ class Enemy {
     protected:
         int x, y;
         char symbol; 
-        int changeTimer, changeTime;
+        int changeTimer;
+        int const changeTime = 10;
     
     public:
         Enemy(int x, int y);

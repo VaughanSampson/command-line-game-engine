@@ -1,13 +1,9 @@
-#pragma once
-#include "enemy.h"
-#include <list>
+#pragma once 
 
 class GameMap {
 
     private:
-        int width, height;
-        std::list<Enemy> enemies;
-        
+        int width, height; 
     
     public:
         GameMap(int width, int height); 
@@ -19,6 +15,5 @@ class GameMap {
         int getHeight() const {
             return height;
         }
-
-        void AddEnemy(Enemy* enemy);
+ 
 };

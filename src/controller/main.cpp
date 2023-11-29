@@ -13,7 +13,8 @@ Main::Main() {
 
 void Main::startGame() {
     this -> map = new GameMap(30, 30);
-    this -> view = new TerminalView(map);
+    this -> player = new Player();
+    this -> view = new TerminalView(map, player);
     view -> SetupRender();
     gameLoop();
 }
@@ -29,6 +30,7 @@ void Main::gameLoop() {
         Sleep(updateTimer); 
 
         // update
+        player -> Update();
 
         // render
         updateSinceLastFrame ++;
@@ -45,8 +47,8 @@ void Main::end() {
 }
 
 void Main::clear() {
-    delete this -> map;
-    delete this -> view;
-    std::cout << "cleared";
+    delete map;
+    delete player;
+    delete view;
 }
 

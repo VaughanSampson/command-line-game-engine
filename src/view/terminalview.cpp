@@ -2,7 +2,7 @@
 #include <stdlib.h> 
 #include <Windows.h>
 
-TerminalView::TerminalView(GameMap* map): map(map) {
+TerminalView::TerminalView(GameMap* map, Player* player): map(map), player(player) {
     std::cout << "    " << "Laser Shooter" << "\n";
 }
 
@@ -14,7 +14,8 @@ void TerminalView::SetupRender() {
 
 void TerminalView::Render() {
     SetPostion(0,1); 
-    std::cout << "    " << this -> map -> getWidth() << std::endl;
+    std::cout << "    " << this -> map -> getWidth() << "\n";
+    std::cout << "    " << this -> player -> getAngle() << std::endl;
 }
 
 void TerminalView::SetPostion(int column, int line)
