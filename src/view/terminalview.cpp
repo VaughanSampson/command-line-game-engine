@@ -14,8 +14,16 @@ void TerminalView::SetupRender() {
     system("cls");
     SetPostion(0,0);
     DrawMessage("Laser Shooter");
-    SetPostion(0,3);
-    for(int i = 0; i < map->getWidth() * 4; i++) {
+
+    //Frame
+    SetPostion(frameOffsetX-1,frameOffsetY-1);
+    for(int i = 0; i < width * 2 + 2; i++) {
+        DrawCharacter('#');
+    }
+    for(int i = 0; i < map -> getHeight() + 2; i++) {
+        SetPostion(frameOffsetX-1,frameOffsetY+i);
+        DrawCharacter('#');
+        SetPostion(frameOffsetX + width * 2,frameOffsetY+i);
         DrawCharacter('#');
     }
 }
@@ -28,16 +36,15 @@ void TerminalView::Render() {
 }
 
 void TerminalView::DrawMap(GameMap* map, Player* player){
-    int offset = 2;
 
     // Player crosshair
     float r = ((player -> getAngle()) * 0.01745328888);
     int x = (int)((float)cos(r)*(width-5));
     int y = (int)((float)sin(r)*(height-5));
     if(x != crosshairX || y != crosshairY) {
-        SetPostion(width + crosshairX, 3 + height + crosshairY); 
+        SetPostion(width + crosshairX, frameOffsetY + height + crosshairY); 
         DrawCharacter(' ');
-        SetPostion(width + x, 3 + height + y); 
+        SetPostion(width + x, frameOffsetY + height + y); 
         DrawCharacter('X');
         crosshairX = x;
         crosshairY = y;

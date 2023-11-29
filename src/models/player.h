@@ -5,7 +5,7 @@
 class Player {
 
     private:
-        float angle;
+        float angle = -90;
         float torque;
         InputHandler* input;
 

@@ -1,5 +1,3 @@
-#include <iostream>  
-#include <string> 
 #include "../view/terminalview.h"
 #include "../models/gamemap.h" 
 #include "../models/player.h" 

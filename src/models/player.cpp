@@ -20,6 +20,16 @@ void Player::Update() {
  
     // Create drag
     torque -= torque/20;
+
+    if(angle < -180){
+        angle = -180;
+        torque = 0;
+    }
+    else
+    if(angle > 0){
+        angle = 0;
+        torque = 0;
+    }
 }
 
 float Player::getAngle() const { return angle; }

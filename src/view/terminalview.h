@@ -9,6 +9,7 @@ class TerminalView{
     private:
         GameMap* map;
         Player* player;
+        int const frameOffsetX = 3, frameOffsetY = 4; 
         int width, height;
         int crosshairX = 0, crosshairY = 0;
 

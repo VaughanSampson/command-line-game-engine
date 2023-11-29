@@ -19,8 +19,7 @@ void Main::startGame() {
     gameLoop();
 }
 
-void Main::gameLoop() {
-    std::cout << map -> getHeight();
+void Main::gameLoop() { 
 
     int updateTimer = 1000 / Main::updatesPerSecond;
     int updateSinceLastFrame = 0;
