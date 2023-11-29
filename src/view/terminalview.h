@@ -1,7 +1,9 @@
 #include <iostream> 
 #include <string> 
+#include <vector>
 #include "../models/gamemap.h"
 #include "../models/player.h"
+#include "../models/enemy.h"
 
 
 class TerminalView{

@@ -16,6 +16,9 @@ void Main::startGame() {
     input = new InputHandler();
     view = new TerminalView(map);
     view -> SetupRender();
+
+    map->addEnemy(1,1);
+    
     gameLoop();
 }
 

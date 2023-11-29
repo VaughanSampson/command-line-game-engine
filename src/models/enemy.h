@@ -11,13 +11,13 @@ class Enemy {
     public:
         Enemy(int x, int y);
 
-        int GetX() const;
-        int GetY() const;
-        char GetSymbol() const;
+        int getX() const;
+        int getY() const;
+        char getSymbol() const;
 
-        bool DoesCollide(int x, int y);
+        bool doesCollide(int x, int y);
         
-        void IncChange();
-        void Update();
+        void incChange();
+        void update();
 
 };

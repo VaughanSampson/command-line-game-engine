@@ -2,24 +2,24 @@
 
 Enemy::Enemy(int x, int y): x(x), y(y) {};
 
-int Enemy::GetX() const{ return this -> x; };
-int Enemy::GetY() const{ return this -> y; };
-char Enemy::GetSymbol() const{ return this -> symbol; };
+int Enemy::getX() const{ return this -> x; };
+int Enemy::getY() const{ return this -> y; };
+char Enemy::getSymbol() const{ return this -> symbol; };
 
-bool Enemy::DoesCollide(int x, int y){
+bool Enemy::doesCollide(int x, int y){
     return this -> x == x && this -> y == y;
 }
 
-void Enemy::IncChange(){
+void Enemy::incChange(){
     this -> changeTimer;
     if(changeTimer > changeTime)
     {
         changeTimer = 0;
-        Update();
+        update();
     }
 }
   
-void Enemy::Update(){
+void Enemy::update(){
     this -> y ++;
 }
  

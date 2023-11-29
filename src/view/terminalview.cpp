@@ -49,6 +49,12 @@ void TerminalView::DrawMap(){
         crosshairX = x;
         crosshairY = y;
     }
+
+    // Enemies
+     std::vector<Enemy*>* enemies = map -> getEnemies(); 
+     for(int i = 0; i < enemies -> size(); i++){
+
+     }
 }
  
 void TerminalView::DrawCharacter(char c) {
