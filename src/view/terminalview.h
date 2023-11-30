@@ -29,5 +29,6 @@ class TerminalView{
         void DrawMap();
 
         void SetPostion(int column, int line);
+        void SetCanvasPosition(int column, int line);
 
 };

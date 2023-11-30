@@ -2,11 +2,12 @@
 
 class Enemy {
 
-    protected:
+    private:
         int x, y;
         char symbol; 
         int changeTimer;
         int const changeTime = 10;
+        bool rendered;
     
     public:
         Enemy(int x, int y);
@@ -14,6 +15,7 @@ class Enemy {
         int getX() const;
         int getY() const;
         char getSymbol() const;
+        bool getRendered() const;
 
         bool doesCollide(int x, int y);
         

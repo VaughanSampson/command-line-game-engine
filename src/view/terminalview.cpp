@@ -38,23 +38,37 @@ void TerminalView::Render() {
 void TerminalView::DrawMap(){
 
     // Player crosshair
-    float r = ((map -> getPlayer() -> getAngle()) * 0.01745328888);
-    int x = (int)((float)cos(r)*(width-5));
-    int y = (int)((float)sin(r)*(height-5));
-    if(x != crosshairX || y != crosshairY) {
-        SetPostion(width + crosshairX, frameOffsetY + height + crosshairY); 
-        DrawCharacter(' ');
-        SetPostion(width + x, frameOffsetY + height + y); 
-        DrawCharacter('X');
-        crosshairX = x;
-        crosshairY = y;
+    if(!map -> getPlayer() -> getRendered()) {
+        float r = ((map -> getPlayer() -> getAngle()) * 0.01745328888);
+        int x = (int)((float)cos(r)*(width-5));
+        int y = (int)((float)sin(r)*(height-5));
+        if(x != crosshairX || y != crosshairY) {
+            SetCanvasPosition(width + crosshairX, height + crosshairY); 
+            DrawCharacter(' ');
+            SetCanvasPosition(width + x, height + y); 
+            DrawCharacter('X');
+            crosshairX = x;
+            crosshairY = y;
+        }
     }
 
     // Enemies
      std::vector<Enemy*>* enemies = map -> getEnemies(); 
      for(int i = 0; i < enemies -> size(); i++){
-
+        Enemy* enemy = enemies -> at(i);
+        if(!enemy -> getRendered())
+        {
+            if(enemy -> getY() > 1){
+                SetCanvasPosition(enemy -> getX(), enemy -> getY()-1);
+                DrawCharacter(' ');
+            }
+            SetCanvasPosition(enemy -> getX(), enemy -> getY());
+            DrawCharacter('V');
+        }
      }
+
+    // Move write symbol
+    SetPostion(0,frameOffsetY+height+5);
 }
  
 void TerminalView::DrawCharacter(char c) {
@@ -74,6 +88,11 @@ void TerminalView::DrawMessage(int num, bool newLine) {
 
 void TerminalView::DrawMessage(float num, bool newLine) {
      DrawMessage(std::to_string(num), newLine);
+}
+
+void TerminalView::SetCanvasPosition(int column, int line)
+{ 
+    SetPostion(frameOffsetX + column, frameOffsetY + line);
 }
 
 void TerminalView::SetPostion(int column, int line)
