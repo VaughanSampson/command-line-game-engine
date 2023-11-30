@@ -10,7 +10,7 @@ class Player {
         bool rendered = false;
 
     public: 
-        void Update(int horizontalAxisInput); 
+        void update(int horizontalAxisInput); 
         float getAngle() const;
         bool getRendered() const;
 

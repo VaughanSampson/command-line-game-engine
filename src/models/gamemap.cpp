@@ -5,7 +5,7 @@ GameMap::GameMap(int setWidth, int setHeight) : width(setWidth), height(setHeigh
     enemies = new std::vector<Enemy*>();
 }; 
 
-void GameMap::update() {
+void GameMap::updateEnemies() {
 
     std::vector<int>* indexesToRemove = new std::vector<int>();
 

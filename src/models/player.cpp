@@ -1,7 +1,7 @@
 #include "player.h"
  
 
-void Player::Update(int horizontalAxisInput) { 
+void Player::update(int horizontalAxisInput) { 
 
     // Create torque
     torque += horizontalAxisInput;

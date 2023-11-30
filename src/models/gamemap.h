@@ -14,7 +14,7 @@ class GameMap {
         GameMap(int width, int height); 
         ~GameMap();
 
-        void update();
+        void updateEnemies();
 
         void addEnemy(int x, int y);
 

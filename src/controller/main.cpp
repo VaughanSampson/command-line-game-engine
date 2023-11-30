@@ -33,8 +33,8 @@ void Main::gameLoop() {
         Sleep(updateTimer); 
 
         // update
-        map -> getPlayer() -> Update(input -> getHorizontalAxis());
-        map -> update();
+        map -> getPlayer() -> update(input -> getHorizontalAxis());
+        map -> updateEnemies();
 
         // render 
         view -> Render();  
