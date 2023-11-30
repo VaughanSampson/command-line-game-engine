@@ -6,6 +6,7 @@
 #include <unistd.h>
 #endif
  
+int updateTimer = 1000 / Main::updatesPerSecond; 
 
 Main::Main() { 
     startGame();
@@ -25,8 +26,7 @@ void Main::startGame() {
 
 void Main::gameLoop() { 
 
-    int updateTimer = 1000 / Main::updatesPerSecond;
-    int updateSinceLastFrame = 0;
+    
 
     bool running = true; 
     while(running){
@@ -34,13 +34,10 @@ void Main::gameLoop() {
 
         // update
         map -> getPlayer() -> Update(input -> getHorizontalAxis());
+        map -> update();
 
-        // render
-        updateSinceLastFrame ++;
-        if(updateSinceLastFrame >= Main::updatesPerFrame) {
-            updateSinceLastFrame = 0;
-            view -> Render(); 
-        }
+        // render 
+        view -> Render();  
     }
 }
 

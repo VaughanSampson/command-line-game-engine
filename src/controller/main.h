@@ -8,10 +8,9 @@ class Main
 		GameMap* map;
 		InputHandler* input; 
 		TerminalView* view;
-		const int updatesPerSecond = 60;  
-		const int updatesPerFrame = 3;  
 
 	public:
+		static const int updatesPerSecond = 20;   
 		Main();
 		~Main(){ clear(); }
 	
