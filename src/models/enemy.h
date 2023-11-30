@@ -18,5 +18,6 @@ class Enemy {
         bool doesCollide(int x, int y);
          
         void update();
+        bool reachedEnd(int mapHeight);
 
 };

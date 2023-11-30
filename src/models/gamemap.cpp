@@ -6,9 +6,23 @@ GameMap::GameMap(int setWidth, int setHeight) : width(setWidth), height(setHeigh
 }; 
 
 void GameMap::update() {
+
+    std::vector<int>* indexesToRemove = new std::vector<int>();
+
     for(int i = 0; i < enemies->size(); i++){
         enemies -> at(i) -> update();
+        if(enemies -> at(i) -> reachedEnd(height)){
+            delete enemies -> at(i); 
+            indexesToRemove -> push_back(i);
+        }
     }
+
+    for(int i = 0; i < indexesToRemove->size(); i++){
+        enemies -> erase(enemies -> begin() + indexesToRemove -> at(i));
+    }
+
+    delete indexesToRemove;
+    
 }
 
 void GameMap::addEnemy(int x, int y){

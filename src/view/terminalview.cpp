@@ -58,10 +58,14 @@ void TerminalView::DrawMap(){
         Enemy* enemy = enemies -> at(i);
         if(!enemy -> getRendered())
         { 
-            SetCanvasPosition(enemy -> getX(), enemy -> getY()-1);
-            DrawCharacter(' '); 
-            SetCanvasPosition(enemy -> getX(), enemy -> getY());
-            DrawCharacter('V');
+            if(enemy -> getY() != 0){ 
+                SetCanvasPosition(enemy -> getX(), enemy -> getY()-1);
+                DrawCharacter(' '); 
+            }
+            if(enemy -> getY() < map -> getHeight()){ 
+                SetCanvasPosition(enemy -> getX(), enemy -> getY());
+                DrawCharacter('V');
+            }
         }
      }
 
