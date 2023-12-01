@@ -50,6 +50,7 @@ void TerminalView::DrawMap(){
             crosshairX = x;
             crosshairY = y;
         }
+        DrawLine(0, 0, map -> getPlayer() -> getAngle(), 10);
     }
 
     // Enemies
@@ -71,6 +72,18 @@ void TerminalView::DrawMap(){
 
     // Move write symbol
     SetPostion(0,frameOffsetY+height+5);
+}
+
+void TerminalView::DrawLine(float xBase, float yBase, float angle, int length) {
+     if(!map -> getPlayer() -> getRendered()) {
+        float r = (angle * 0.01745328888);
+        float xCos = ((float)cos(r));
+        float yCos = ((float)sin(r)); 
+        for(int i = 0; i < length; i++){ 
+            SetCanvasPosition(width + xBase + xCos*i, height + yBase + yCos*i); 
+            DrawCharacter('X');
+        }
+    }
 }
  
 void TerminalView::DrawCharacter(char c) {

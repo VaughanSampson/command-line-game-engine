@@ -25,7 +25,9 @@ class TerminalView{
         void DrawMessage(std::string text, bool newLine = true);
         void DrawMessage(int num, bool newLine = true);
         void DrawMessage(float num, bool newLine = true);
-        
+
+        void DrawLine(float x, float y, float angle, int length);
+
         void DrawMap();
 
         void SetPostion(int column, int line);
