@@ -40,8 +40,8 @@ void TerminalView::DrawMap(){
     // Player crosshair
     if(!map -> getPlayer() -> getRendered()) {
         float r = ((map -> getPlayer() -> getAngle()) * 0.01745328888);
-        int x = (int)((float)cos(r)*(width-5));
-        int y = (int)((float)sin(r)*(height-5));
+        float x = (cos(r)*(width-5));
+        float y = (sin(r)*(height-5));
         if(x != crosshairX || y != crosshairY) {
             SetCanvasPosition(width + crosshairX, height + crosshairY); 
             DrawCharacter(' ');
@@ -50,7 +50,6 @@ void TerminalView::DrawMap(){
             crosshairX = x;
             crosshairY = y;
         }
-        DrawLine(0, 0, map -> getPlayer() -> getAngle(), 10);
     }
 
     // Enemies
@@ -73,18 +72,7 @@ void TerminalView::DrawMap(){
     // Move write symbol
     SetPostion(0,frameOffsetY+height+5);
 }
-
-void TerminalView::DrawLine(float xBase, float yBase, float angle, int length) {
-     if(!map -> getPlayer() -> getRendered()) {
-        float r = (angle * 0.01745328888);
-        float xCos = ((float)cos(r));
-        float yCos = ((float)sin(r)); 
-        for(int i = 0; i < length; i++){ 
-            SetCanvasPosition(width + xBase + xCos*i, height + yBase + yCos*i); 
-            DrawCharacter('X');
-        }
-    }
-}
+ 
  
 void TerminalView::DrawCharacter(char c) {
     std::cout << c;
