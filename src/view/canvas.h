@@ -14,6 +14,7 @@ class Canvas {
     public:
         Canvas(int positionX, int positionY, int width, int height); 
 
-        void render(GameMap* map);
+        void drawMap(GameMap* map); 
+        void drawIcon(int canvasX, int canvasY, char c1, char c2);
 
 };
