@@ -3,6 +3,8 @@
 #include "terminalhelper.h"
 #include "../models/gamemap.h"
 
+using namespace terminal_helper;
+
 class Canvas {
 
     private:

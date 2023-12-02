@@ -16,10 +16,12 @@ void Main::startGame() {
     map = new GameMap(20, 20);
     input = new InputHandler();
     view = new TerminalView(map);
-    view -> SetupRender();
+    /*
+        view -> SetupRender();
 
-    map->addEnemy(1,0);
-    map->addEnemy(10,0);
+        map->addEnemy(1,0);
+        map->addEnemy(10,0);
+    */
     
     gameLoop();
 }
@@ -37,7 +39,7 @@ void Main::gameLoop() {
         map -> updateEnemies();
 
         // render 
-        view -> Render();  
+        //view -> Render();  
     }
 }
 

@@ -1,25 +1,24 @@
-#include "terminalview.h"
-#include <stdlib.h> 
-#include <Windows.h> 
-#include <cmath>
-#define _USE_MATH_DEFINES
+#include "terminalview.h" 
 
 TerminalView::TerminalView(GameMap* map): map(map) {
     std::cout << "    " << "Laser Shooter" << "\n";
-    width = map -> getWidth() * 2;
-    height = map -> getHeight();
+    canvas = new Canvas(4, 4, map -> getWidth(), map -> getHeight());
+    /*
+        width = map -> getWidth() * 2;
+        height = map -> getHeight();
+    */
 }
 
 void TerminalView::SetupRender() {
     system("cls");
-    SetPostion(0,0);
+    terminal_helper::setPosition(0,0);
     DrawMessage("Laser Shooter");
 
     
 }
 
 void TerminalView::Render() {
-    SetPostion(0,1); 
+    terminal_helper::setPosition(0,1); 
     DrawMessage(map -> getWidth());
     DrawMessage(map -> getPlayer() -> getAngle()); 
     DrawMap(); 
@@ -34,9 +33,9 @@ void TerminalView::DrawMap(){
         float y = (sin(r)*(height-5));
         if(x != crosshairX || y != crosshairY) {
             SetCanvasPosition(width + crosshairX, height + crosshairY); 
-            DrawCharacter(' ');
+            terminal_helper::drawCharacter(' ');
             SetCanvasPosition(width + x, height + y); 
-            DrawCharacter('X');
+            terminal_helper::drawCharacter('X');
             crosshairX = x;
             crosshairY = y;
         }
@@ -50,22 +49,18 @@ void TerminalView::DrawMap(){
         { 
             if(enemy -> getY() != 0){ 
                 SetCanvasPosition(enemy -> getX(), enemy -> getY()-1);
-                DrawCharacter(' '); 
+                terminal_helper::drawCharacter(' '); 
             }
             if(enemy -> getY() < map -> getHeight()){ 
                 SetCanvasPosition(enemy -> getX(), enemy -> getY());
-                DrawCharacter('V');
+                terminal_helper::drawCharacter('V');
             }
         }
      }
 
     // Move write symbol
-    SetPostion(0,frameOffsetY+height+5);
-}
- 
-void TerminalView::DrawCharacter(char c) {
-    std::cout << c;
-}
+    terminal_helper::setPosition(0,frameOffsetY+height+5);
+} 
 
 void TerminalView::DrawMessage(std::string text, bool newLine) {
     std::cout << "    " << text;
@@ -84,18 +79,6 @@ void TerminalView::DrawMessage(float num, bool newLine) {
 
 void TerminalView::SetCanvasPosition(int column, int line)
 { 
-    SetPostion(frameOffsetX + column, frameOffsetY + line);
+    terminal_helper::setPosition(frameOffsetX + column, frameOffsetY + line);
 }
-
-void TerminalView::SetPostion(int column, int line)
-{ 
-    COORD coord;
-    coord.X = column;
-    coord.Y = line;
  
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
- 
-    if (!SetConsoleCursorPosition(hConsole, coord)) {
-        std::cout << GetLastError() << std::endl;
-    }
-}
