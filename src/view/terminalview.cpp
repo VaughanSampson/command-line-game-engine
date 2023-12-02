@@ -15,17 +15,7 @@ void TerminalView::SetupRender() {
     SetPostion(0,0);
     DrawMessage("Laser Shooter");
 
-    //Frame
-    SetPostion(frameOffsetX-1,frameOffsetY-1);
-    for(int i = 0; i < width * 2 + 2; i++) {
-        DrawCharacter('#');
-    }
-    for(int i = 0; i < map -> getHeight() + 2; i++) {
-        SetPostion(frameOffsetX-1,frameOffsetY+i);
-        DrawCharacter('#');
-        SetPostion(frameOffsetX + width * 2,frameOffsetY+i);
-        DrawCharacter('#');
-    }
+    
 }
 
 void TerminalView::Render() {
@@ -72,7 +62,6 @@ void TerminalView::DrawMap(){
     // Move write symbol
     SetPostion(0,frameOffsetY+height+5);
 }
- 
  
 void TerminalView::DrawCharacter(char c) {
     std::cout << c;
