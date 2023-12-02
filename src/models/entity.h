@@ -1,23 +1,18 @@
 
 #pragma once
 
-class Entity {
-
-    public:
-        struct icon { 
-            char c1; 
-            char c2;
-        };
+class Entity { 
         
     protected:
         int id;
         float positionX, positionY; 
+        char symbol;
 
     public:
-        Entity(int id, float x, float y) : id(id), positionX(x), positionY(y) {};
+        Entity(int id, char symbol, float x, float y) : id(id), symbol(symbol), positionX(x), positionY(y) {};
 
         virtual void update() = 0;
-        virtual icon getIcon() = 0;
+        char getIcon() { return symbol; }
 
         float getPositionX(){ return positionX; }
         float getPositionY(){ return positionY; }

@@ -21,6 +21,7 @@ class TerminalView{
 
     public:
         TerminalView(GameMap* map);
+        ~TerminalView();
         void render();  
 
     private:

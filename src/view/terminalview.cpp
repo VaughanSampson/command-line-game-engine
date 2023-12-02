@@ -5,10 +5,11 @@ TerminalView::TerminalView(GameMap* map): map(map) {
     canvas = new Canvas(4, 4, map -> getWidth(), map -> getHeight()); 
 }
 
-void TerminalView::render() {
+void TerminalView::render() { 
     terminal_helper::setPosition(0,1);
     drawMessage(map -> getPlayer() -> getPositionX());  
     drawMessage(map -> getPlayer() -> getPositionY()); 
+    canvas -> drawMap(map);
 }
 
 void TerminalView::drawMap(){
@@ -68,4 +69,7 @@ void TerminalView::setCanvasPosition(int column, int line)
 { 
     terminal_helper::setPosition(frameOffsetX + column, frameOffsetY + line);
 }
- 
+
+TerminalView::~TerminalView(){
+    delete canvas;
+};

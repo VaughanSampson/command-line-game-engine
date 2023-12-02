@@ -15,8 +15,5 @@ class Player : public  Body{
         Player(int id, float x, float y, float velocityX, float velocityY);
         void update(); 
         float getAngle() const;
-        bool getRendered() const; 
-        icon getIcon();
-
-
+        bool getRendered() const;
 };

@@ -8,13 +8,18 @@ using namespace terminal_helper;
 class Canvas {
 
     private:
-        int positionX, positionY;
+        int offsetX, offsetY;
         int width, height;
+        std::string lineClear;
 
     public:
         Canvas(int positionX, int positionY, int width, int height); 
 
         void drawMap(GameMap* map); 
-        void drawIcon(int canvasX, int canvasY, char c1, char c2);
+    
+    private:
+        void setCanvasPosition(int x, int y);
+        void drawIcon(int canvasX, int canvasY, char c);
+        void clearLine(int line);
 
 };
