@@ -13,8 +13,7 @@ Main::Main() {
 }
 
 void Main::startGame() {
-    map = new GameMap(30, 20);
-    input = new InputHandler();
+    map = new GameMap(30, 20); 
     view = new TerminalView(map);
     /*
         view -> SetupRender();
@@ -35,7 +34,7 @@ void Main::gameLoop() {
         Sleep(updateTimer); 
 
         // update
-        map -> getPlayer() -> update(input -> getHorizontalAxis());
+        map -> getPlayer() -> update();
         map -> updateEnemies();
 
         // render 
@@ -49,8 +48,7 @@ void Main::end() {
 }
 
 void Main::clear() {
-    delete map;
-    delete input; 
+    delete map; 
     delete view;
 }
 

@@ -1,4 +1,4 @@
-
+#include "../input/inputhandler.h"
 
 #pragma once
 
@@ -10,7 +10,7 @@ class Player {
         bool rendered = false;
 
     public: 
-        void update(int horizontalAxisInput); 
+        void update(); 
         float getAngle() const;
         bool getRendered() const;
 

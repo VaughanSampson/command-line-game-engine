@@ -1,12 +1,10 @@
 #include "../view/terminalview.h"
-#include "../models/gamemap.h"  
-#include "../input/inputhandler.h"
+#include "../models/gamemap.h"   
 
 class Main
 { 
 	private:
-		GameMap* map;
-		InputHandler* input; 
+		GameMap* map; 
 		TerminalView* view;
 
 	public:

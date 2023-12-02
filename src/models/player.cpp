@@ -1,10 +1,9 @@
-#include "player.h"
- 
+#include "player.h" 
 
-void Player::update(int horizontalAxisInput) { 
+void Player::update() { 
 
     // Create torque
-    torque += horizontalAxisInput;
+    torque += input_handler::getHorizontalAxisInput();
 
     if(-0.5f > torque || torque > 0.5f) {
         // Add angle
