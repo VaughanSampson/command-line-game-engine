@@ -1,6 +1,6 @@
 #include "gamemap.h"
 
-GameMap::GameMap(int setWidth, int setHeight) : width(setWidth), height(setHeight){
+GameMap::GameMap(int width, int height) : width(width), height(height){
     player = new Player(1, 0, 0); 
 }; 
 

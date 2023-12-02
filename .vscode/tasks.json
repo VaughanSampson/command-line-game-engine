@@ -10,6 +10,7 @@
                 "${workspaceFolder}/src/*.cpp",
                 "${workspaceFolder}/src/controller/*.cpp",
                 "${workspaceFolder}/src/models/*.cpp", 
+                "${workspaceFolder}/src/models/entities/*.cpp", 
                 "${workspaceFolder}/src/view/*.cpp", 
                 "${workspaceFolder}/src/input/*.cpp", 
                 "-o",

@@ -6,8 +6,7 @@
 #include <cmath>
 #include "terminalhelper.h"
 #include "canvas.h"
-#include "../models/gamemap.h"
-#include "../models/player.h" 
+#include "../models/gamemap.h" 
 
 class TerminalView{
 
