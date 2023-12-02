@@ -13,7 +13,7 @@ Main::Main() {
 }
 
 void Main::startGame() {
-    map = new GameMap(20, 20);
+    map = new GameMap(30, 20);
     input = new InputHandler();
     view = new TerminalView(map);
     /*
