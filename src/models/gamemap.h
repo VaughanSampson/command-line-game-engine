@@ -1,5 +1,4 @@
-#include "player.h" 
-#include "enemy.h" 
+#include "player.h"
 #include <vector>
 #pragma once 
 
@@ -7,20 +6,16 @@ class GameMap {
 
     private:
         int width, height; 
-		Player* player;
-        std::vector<Enemy*>* enemies;
+		Player* player; 
     
     public:
         GameMap(int width, int height); 
         ~GameMap();
 
-        void update();
-
-        void addEnemy(int x, int y);
+        void update(); 
 
         int getWidth() const; 
         int getHeight() const; 
-        Player* getPlayer() const;
-        std::vector<Enemy*>* getEnemies() const;
+        Player* getPlayer() const; 
  
 };

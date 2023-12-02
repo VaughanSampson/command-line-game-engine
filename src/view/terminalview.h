@@ -7,8 +7,7 @@
 #include "terminalhelper.h"
 #include "canvas.h"
 #include "../models/gamemap.h"
-#include "../models/player.h"
-#include "../models/enemy.h" 
+#include "../models/player.h" 
 
 class TerminalView{
 
@@ -27,10 +26,6 @@ class TerminalView{
     private:
         void drawMessage(std::string text, bool newLine = true);
         void drawMessage(int num, bool newLine = true);
-        void drawMessage(float num, bool newLine = true); 
-
-        void drawMap();
- 
-        void setCanvasPosition(int column, int line);
+        void drawMessage(float num, bool newLine = true);   
 
 };
