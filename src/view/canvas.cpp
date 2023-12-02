@@ -13,7 +13,7 @@ Canvas::Canvas(int positionX, int positionY, int width, int height): positionX(p
     for(int i = 0; i < height; i++) {
         setPosition(positionX - 1, positionY + i);
         drawCharacter('|'); 
-        setPosition(positionX + width * 2 + 2, positionY + i);
+        setPosition(positionX + width * 2, positionY + i);
         drawCharacter('|'); 
     } 
     

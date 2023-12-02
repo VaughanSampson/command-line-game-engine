@@ -21,16 +21,15 @@ class TerminalView{
 
     public:
         TerminalView(GameMap* map);
-        void Render(); 
-        void SetupRender();
+        void render();  
 
     private:
-        void DrawMessage(std::string text, bool newLine = true);
-        void DrawMessage(int num, bool newLine = true);
-        void DrawMessage(float num, bool newLine = true); 
+        void drawMessage(std::string text, bool newLine = true);
+        void drawMessage(int num, bool newLine = true);
+        void drawMessage(float num, bool newLine = true); 
 
-        void DrawMap();
+        void drawMap();
  
-        void SetCanvasPosition(int column, int line);
+        void setCanvasPosition(int column, int line);
 
 };

@@ -1,11 +1,13 @@
 #include "gamemap.h"
 
 GameMap::GameMap(int setWidth, int setHeight) : width(setWidth), height(setHeight){
-    player = new Player();
+    player = new Player(1, 0, 0);
     enemies = new std::vector<Enemy*>();
 }; 
 
-void GameMap::updateEnemies() {
+void GameMap::update() {
+    
+    player -> update();
 
     std::vector<int>* indexesToRemove = new std::vector<int>();
 

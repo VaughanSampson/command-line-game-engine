@@ -16,4 +16,18 @@ namespace input_handler
 
         return dir;
     }
+
+    short getVerticalAxisInput() {
+    
+        short dir = 0;
+
+        if(GetAsyncKeyState(VK_UP) || GetAsyncKeyState(0x57)) {
+            dir--;
+        }
+        if(GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState(0x53)) {
+            dir++;
+        } 
+
+        return dir;
+    }
 }

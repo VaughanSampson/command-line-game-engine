@@ -14,13 +14,7 @@ Main::Main() {
 
 void Main::startGame() {
     map = new GameMap(30, 20); 
-    view = new TerminalView(map);
-    /*
-        view -> SetupRender();
-
-        map->addEnemy(1,0);
-        map->addEnemy(10,0);
-    */
+    view = new TerminalView(map); 
     
     gameLoop();
 }
@@ -35,10 +29,10 @@ void Main::gameLoop() {
 
         // update
         map -> getPlayer() -> update();
-        map -> updateEnemies();
+        map -> update();
 
         // render 
-        //view -> Render();  
+        view -> render();  
     }
 }
 

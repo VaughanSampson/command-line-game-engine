@@ -6,6 +6,7 @@
 namespace input_handler
 { 
     extern short getHorizontalAxisInput();  
+    extern short getVerticalAxisInput();  
 }
 
 #endif
