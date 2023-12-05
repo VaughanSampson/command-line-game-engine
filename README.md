@@ -5,6 +5,6 @@ It's a simple command line game engine. It includes:
 + ```Map``` model
 + ```Entity``` model
 + A ```Body``` ```Entity``` which has acceleration physics
-+ ```Player``` which is a ```Body``` that can take WSAD input for movement
-+ Game ```Canvas``` for rendering entities
++ ```Player``` which is a ```Body``` that can take WSAD input for acceleration
++ Game ```Canvas``` for rendering entities in a frame on the terminal
 
