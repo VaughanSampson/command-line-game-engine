@@ -14,8 +14,7 @@ class TerminalView{
         Canvas* canvas;
         GameMap* map; 
         int const frameOffsetX = 3, frameOffsetY = 4; 
-        int width, height;
-        int crosshairX = 0, crosshairY = 0;
+        int width, height; 
 
     public:
         TerminalView(GameMap* map);

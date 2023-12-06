@@ -5,15 +5,12 @@
 
 class Player : public  Body{
 
-    private:
-        float angle = -90;
-        float torque;
+    private: 
         bool rendered = false;
 
     public: 
         Player(int id, float x, float y);
         Player(int id, float x, float y, float velocityX, float velocityY);
-        void update(); 
-        float getAngle() const;
+        void update();  
         bool getRendered() const;
 };
