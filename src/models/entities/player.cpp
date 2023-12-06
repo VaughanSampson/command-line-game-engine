@@ -13,7 +13,5 @@ void Player::update() {
     Body::addVelocity((float)input_handler::getHorizontalAxisInput()/10, (float)input_handler::getVerticalAxisInput()/10);
     Body::update();  
 }
- 
-
-bool Player::getRendered() const { return rendered; }
+  
  
