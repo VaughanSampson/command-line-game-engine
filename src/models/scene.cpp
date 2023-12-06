@@ -1,10 +1,10 @@
-#include "gamemap.h"
+#include "scene.h"
 
-GameMap::GameMap(int width, int height) : width(width), height(height){
+Scene::Scene(int width, int height) : width(width), height(height){
     player = new Player(1, 0, 0); 
 }; 
 
-void GameMap::update() {
+void Scene::update() {
     
     player -> update();
 
@@ -14,20 +14,20 @@ void GameMap::update() {
     
 }
   
-int GameMap::getWidth() const {
+int Scene::getWidth() const {
     return width;
 }
 
-int GameMap::getHeight() const {
+int Scene::getHeight() const {
     return height;
 }
 
-Player* GameMap::getPlayer() const {
+Player* Scene::getPlayer() const {
     return player;
 }
  
 
-GameMap::~GameMap() {
+Scene::~Scene() {
     delete player;  
 }
  

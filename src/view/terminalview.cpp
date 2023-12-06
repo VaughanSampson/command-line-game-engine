@@ -1,6 +1,6 @@
 #include "terminalview.h" 
 
-TerminalView::TerminalView(GameMap* map): map(map) {
+TerminalView::TerminalView(Scene* map): map(map) {
     drawMessage("Velocity"); 
     canvas = new Canvas(4, 4, map -> getWidth(), map -> getHeight()); 
 }

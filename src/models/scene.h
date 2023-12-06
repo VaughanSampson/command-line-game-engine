@@ -2,15 +2,15 @@
 #include <vector>
 #pragma once 
 
-class GameMap {
+class Scene {
 
     private:
         int width, height; 
 		Player* player; 
     
     public:
-        GameMap(int width, int height); 
-        ~GameMap();
+        Scene(int width, int height); 
+        ~Scene();
 
         void update(); 
 

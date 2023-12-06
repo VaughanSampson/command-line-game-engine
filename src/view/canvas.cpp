@@ -30,7 +30,7 @@ Canvas::Canvas(int offsetX, int offsetY, int width, int height)
     lineClear = blanks;
 }
 
-void Canvas::drawMap(GameMap* map) {
+void Canvas::drawMap(Scene* map) {
     // Clear  canvas
     setPosition(offsetX - 1, offsetY - 1); 
     for(int i = 0; i < height; i++) { 

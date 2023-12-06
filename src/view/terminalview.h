@@ -6,18 +6,18 @@
 #include <cmath>
 #include "terminalhelper.h"
 #include "canvas.h"
-#include "../models/gamemap.h" 
+#include "../models/scene.h" 
 
 class TerminalView{
 
     private:
         Canvas* canvas;
-        GameMap* map; 
+        Scene* map; 
         int const frameOffsetX = 3, frameOffsetY = 4; 
         int width, height; 
 
     public:
-        TerminalView(GameMap* map);
+        TerminalView(Scene* map);
         ~TerminalView();
         void render();  
 

@@ -1,10 +1,10 @@
 #include "../view/terminalview.h"
-#include "../models/gamemap.h"   
+#include "../models/scene.h"   
 
 class Main
 { 
 	private:
-		GameMap* map; 
+		Scene* map; 
 		TerminalView* view;
 
 	public:

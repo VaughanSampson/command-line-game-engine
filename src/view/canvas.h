@@ -1,7 +1,7 @@
 #include <iostream> 
 #include <string> 
 #include "terminalhelper.h"
-#include "../models/gamemap.h"
+#include "../models/scene.h"
 
 using namespace terminal_helper;
 
@@ -15,7 +15,7 @@ class Canvas {
     public:
         Canvas(int positionX, int positionY, int width, int height); 
 
-        void drawMap(GameMap* map); 
+        void drawMap(Scene* map); 
     
     private:
         void setCanvasPosition(int x, int y);
